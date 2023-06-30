@@ -1,75 +1,61 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
 import HomeImage from '../../Assets/images/homeImage.jpg';
-import HeaderComponent from '../components/HeaderComponent';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const HomeScreen = props => {
   const {channelName, description} = props;
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.homeTop}>
-        <View>
-          <HeaderComponent centerText={'Home'} />
-        </View>
-        <Image
-          style={styles.headerImage}
-          resizeMode="contain"
-          source={HomeImage}
-        />
-        <Text style={styles.mainHeader}>Welcome to</Text>
-        <Text
-          style={[
-            styles.mainHeader,
-            {
-              fontSize: 33,
-              color: '#4c5dab',
-              marginTop: 0,
-            },
-          ]}>
-          {channelName}
-        </Text>
-        <Text style={styles.paraStyle}>{description}</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.imageWrapper}>
+        <Image style={styles.image} source={HomeImage} />
       </View>
-    </View>
+      <View style={styles.channelWrapper}>
+        <Text style={styles.channelName}>{channelName}</Text>
+      </View>
+      <View style={styles.channelDescriptionWrapper}>
+        <Text style={styles.channelDescription}>{description}</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
+const {height, width} = Dimensions.get('window');
+
 const styles = StyleSheet.create({
-  mainContainer: {
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    backgroundColor: '#fff',
-    textAlign: 'center',
-  },
-  homeTop: {
-    display: 'flex',
-    justifyContent: 'center',
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
     alignItems: 'center',
-    paddingHorizontal: 10,
+    justifyContent: 'center',
   },
-  headerImage: {
+  imageWrapper: {
+    borderRadius: 10,
+    overflow: 'hidden',
+    marginBottom: height * 0.05,
+  },
+  image: {
     height: undefined,
     width: '100%',
     aspectRatio: 1,
-    display: 'flex',
-    alignItems: 'stretch',
-    marginTop: 10,
-    borderRadius: 20,
   },
-  mainHeader: {
+  channelWrapper: {
+    alignItems: 'center',
+    marginBottom: height * 0.02,
+  },
+  channelName: {
     fontSize: 30,
-    color: '#344055',
-    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    color: '#FF0060',
   },
-  paraStyle: {
-    textAlign: 'left',
-    fontSize: 19,
-    color: '#7d7d7d',
-    marginTop: 30,
-    paddingBottom: 50,
-    lineHeight: 26,
+  channelDescriptionWrapper: {
+    alignItems: 'center',
+    paddingHorizontal: width * 0.1,
+  },
+  channelDescription: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: 'white',
   },
 });
 

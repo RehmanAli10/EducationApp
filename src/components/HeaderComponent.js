@@ -1,57 +1,38 @@
-import React, {useState} from 'react';
-import {TouchableOpacity, Text, StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import React from 'react';
 
-const HeaderComponent = ({
-  onPressFirstIcon,
-  firstIcon,
-  centerText,
-  lastIcon,
-  onPressSecondIcon,
-}) => {
-  return firstIcon && centerText && !lastIcon ? (
-    <View style={styles.headerMainWrapper}>
-      <TouchableOpacity onPress={onPressFirstIcon}>
-        {firstIcon && firstIcon}
+const HeaderComponent = ({headerText, icon, onPress}) => {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.iconWrapper} onPress={onPress}>
+        {icon}
       </TouchableOpacity>
-
-      <View style={styles.centerTextWrapper}>
-        <Text style={styles.headerTextCenterStyle}>{centerText}</Text>
+      <View style={styles.headerWrapper}>
+        <Text style={styles.headerText}>{headerText}</Text>
       </View>
-    </View>
-  ) : (
-    <View style={styles.headerMainWrapper}>
-      <TouchableOpacity onPress={onPressFirstIcon}>
-        {firstIcon && firstIcon}
-      </TouchableOpacity>
-
-      <Text style={styles.headerTextCenterStyle}>{centerText}</Text>
-      <TouchableOpacity onPress={onPressSecondIcon}>
-        {lastIcon && lastIcon}
-      </TouchableOpacity>
     </View>
   );
 };
+
 const styles = StyleSheet.create({
-  headerMainWrapper: {
-    marginTop: '5%',
-    width: '100%',
-    paddingHorizontal: '5%',
-    paddingBottom: 5,
+  container: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    marginTop: 20,
     alignItems: 'center',
-    position: 'relative',
+    justifyContent: 'space-evenly',
   },
-  centerTextWrapper: {
-    position: 'absolute',
-    left: '53%',
-    bottom: 5,
+  headerWrapper: {
+    flex: 1,
+    marginRight: '20%',
+    alignItems: 'center',
   },
-  headerTextCenterStyle: {
-    fontSize: 16,
-    // color: '#ACACAC',
-    color: 'black',
-    fontWeight: '600',
+  iconWrapper: {
+    marginLeft: '5%',
+  },
+  headerText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
   },
 });
 
