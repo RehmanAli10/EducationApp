@@ -49,6 +49,7 @@ const TabNavigation = () => {
         name="Users"
         component={UsersContainer}
         options={{
+          headerShown: false,
           tabBarIcon: ({focused}) => (
             <UsersIcon
               height={30}
