@@ -68,7 +68,7 @@ const UsersScreen = () => {
       <FlatList
         data={studentData}
         renderItem={showUserData}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.id}
         horizontal
         showsHorizontalScrollIndicator={false}
       />
