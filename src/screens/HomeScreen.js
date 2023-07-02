@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: undefined,
-    width: '100%',
+    width: '80%',
     aspectRatio: 1,
   },
   channelWrapper: {

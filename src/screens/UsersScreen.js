@@ -64,7 +64,6 @@ const UsersScreen = () => {
         icon={<BackIcon fill={'white'} height={30} width={30} />}
         onPress={navigationToCourses}
       />
-      <Text>List of Students</Text>
       <FlatList
         data={studentData}
         renderItem={showUserData}
@@ -102,24 +101,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#353535',
     paddingVertical: 10,
-    fontFamily: 'WorkSans_400Regular',
   },
   idNumber: {
     fontSize: 20,
     color: 'rgba(255, 255, 255, 0.5)',
-    fontFamily: 'WorkSans_400Regular',
     paddingRight: 10,
   },
   bioData: {
     fontSize: 30,
     color: '#fff',
-    fontFamily: 'WorkSans_400Regular',
   },
   mainHeader: {
     fontSize: 30,
     color: '#a18ce5',
     textAlign: 'center',
-    fontFamily: 'WorkSans_400Regular',
     paddingVertical: 50,
   },
   imgContainer: {
@@ -142,7 +137,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'flex-start',
     textTransform: 'capitalize',
-    fontFamily: 'WorkSans_400Regular',
   },
 });
 
